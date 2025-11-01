@@ -1,0 +1,39 @@
+[5:42 p. m., 31/10/2025] +51 930 660 542: <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Productos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+<body>
+<h1>Productos</h1>
+<a href="/products/new">Agregar producto</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Descripción</th>
+        <th>Acción</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p : ${products}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.nombre}"></td>
+        <td th:text="${p.precio}"></td>
+        <td th:text="${p.cantidad}"></td>
+        <td th:text="${p.descripcion}"></td>
+        <td>
+            <a th:href="@{'/products/delete/' + ${p.id}}"
+                class="button button-delete"
+                onclick="return confirm('¿Eliminar producto?')">Eliminar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
