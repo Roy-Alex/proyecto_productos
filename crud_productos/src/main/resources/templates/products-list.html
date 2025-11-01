@@ -7,9 +7,21 @@
 
 </head>
 <body>
+<h1>Productos</h1>
+<a href="/products/new">Agregar producto</a>
 <table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Descripción</th>
+        <th>Acción</th>
+    </tr>
+    </thead>
     <tbody>
-    <tr th:each="p : ${products}">
+      <tr th:each="p : ${products}">
         <td th:text="${p.id}"></td>
         <td th:text="${p.nombre}"></td>
         <td th:text="${p.precio}"></td>
@@ -21,7 +33,7 @@
                 onclick="return confirm('¿Eliminar producto?')">Eliminar</a>
         </td>
     </tr>
-    </tbody>
+  </tbody>
 </table>
 </body>
 </html>
